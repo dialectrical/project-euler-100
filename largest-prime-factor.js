@@ -1,15 +1,17 @@
 const largestPrimeFactor = (num) => {
-  console.log(num);
+  console.log("recursion");
   for (let i = 2; i <= num; i++) {
-    if (i === num) {
+    if (num === i) {
+      console.log("the end!");
       return num;
     } else if (num % i == 0) {
       console.log("num: " + num);
       console.log("i: " + i);
       console.log(num / i);
-      largestPrimeFactor(i);
+      return largestPrimeFactor(num / i);
     }
   }
+  return num;
 };
 
 //600851475143
