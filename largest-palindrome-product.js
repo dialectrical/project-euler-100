@@ -1,13 +1,14 @@
-const createTable = () => {
-  let table = [];
+const largestPalindromProduct = () => {
+  let biggestPalindrome = 0;
   for (let i = 0; i < 899; i++) {
-    table.push([]);
     let x = 999 - i;
     for (let d = 999; d > 99; d--) {
-      table[i].push(d * x);
+      if (checkPalindrome(d * x) && d * x > biggestPalindrome) {
+        biggestPalindrome = d * x;
+      }
     }
   }
-  return table;
+  return biggestPalindrome;
 };
 
 const checkPalindrome = (num) => {
@@ -19,19 +20,6 @@ const checkPalindrome = (num) => {
     }
   }
   return true;
-};
-
-const largestPalindromProduct = () => {
-  const table = createTable();
-  let biggestPalindrome = 0;
-  for (let i = 0; i < 899; i++) {
-    for (let d = 0; d < 899; d++) {
-      if (checkPalindrome(table[i][d]) && table[i][d] > biggestPalindrome) {
-        biggestPalindrome = table[i][d];
-      }
-    }
-  }
-  return biggestPalindrome;
 };
 
 console.log(largestPalindromProduct());
