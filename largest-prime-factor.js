@@ -1,8 +1,13 @@
 const largestPrimeFactor = (num) => {
   console.log(num);
-  for (let i = 2; i < num; i++) {
-    if (num % i == 0) {
-      largestPrimeFactor(num / i);
+  for (let i = 2; i <= num; i++) {
+    if (i === num) {
+      return num;
+    } else if (num % i == 0) {
+      console.log("num: " + num);
+      console.log("i: " + i);
+      console.log(num / i);
+      largestPrimeFactor(i);
     }
   }
 };
